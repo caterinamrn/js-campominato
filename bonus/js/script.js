@@ -15,22 +15,25 @@
   console.log(numComputer);
 
 // chiedo all'utente un numero da 1 a 100 fino a quando non ne scrive uno uguale a quelli generati in numComputer
- while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num))) {
-    num = parseInt(prompt("Inserire un numero da 1 a 100"));
-    if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true) {
-      numUtente.push(num);
-    }
-}
+do {
+  num = parseInt(prompt("Inserire un numero da 1 a 100"));
+      if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true ) {
+        numUtente.push(num);
+      }
+} while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true);
+
 console.log(numUtente,numUtente.length);
 // risultato
 if (numUtente.length == maxNumUtente) {
-  console.log("Complimenti! Hai vinto!");
+  // console.log("Complimenti! Hai vinto!");
+  alert("Complimenti! Hai vinto!");
 }
 else {
-  console.log("Hai perso!");
+  // console.log("Hai perso!");
+  alert("Hai perso!" + "Il tuo punteggio è di" + numUtente.length );
 }
-console.log("il tuo punteggio è di", numUtente.length);
-
+console.log("il tuo punteggio è ", numUtente.length);
+console.log("Hai perso insererndo il numero",num);
 
 
 

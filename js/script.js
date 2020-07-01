@@ -39,7 +39,7 @@ if (numUtente.length == maxNumUtente) {
 else {
   console.log("Hai perso!");
 }
-console.log("il tuo punteggio è di", numUtente.length);
+console.log("il tuo punteggio è ", numUtente.length);
 // for (var i = 0; i < 16; i++) {
 //   numComputer.push(getRandomIntInclusive(1,100));
 // }
