@@ -87,7 +87,7 @@ function inclusoInArray (array,num){
 }
 // devo creare una function per vedere se il numero inserito è nel range e se è un numero
 function condizioni(max,min,num){
-  console.log(num < min,num > max,isNaN(num),num < min || num > max || !isNaN(num));
+  // console.log(num < min,num > max,isNaN(num),num < min || num > max || !isNaN(num));
   var incluso = false;
   if (num < min || num > max || isNaN(num)) {
     return incluso = false;
