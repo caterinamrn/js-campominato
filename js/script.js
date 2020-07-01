@@ -6,7 +6,7 @@
   var numComputer = [];
   var maxNumComputer = 16;
   var numUtente = [];
-  var maxNumUtente = 7;
+  var maxNumUtente = 84;
   var num;
 // creo numeri casuali da 1 a 100 senza ripetizioni
   while (numComputer.length < maxNumComputer) {
