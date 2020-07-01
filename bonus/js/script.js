@@ -1,39 +1,60 @@
+var btn = document.getElementById('btn');
 
-  var numComputer = [];
-  var maxNumComputer = 16;
-  var numUtente = [];
-  var maxNumUtente = 84;
-  var num;
-// creo numeri casuali da 1 a 100 senza ripetizioni
-  while (numComputer.length < maxNumComputer) {
-    console.log(numComputer.length);
-    var numRandom = getRandomIntInclusive(1,100);
-    if (inclusoInArray(numComputer,numRandom) == false) {
-      numComputer.push(numRandom);
-    }
-  }
-  console.log(numComputer);
+ btn.addEventListener("click", function () {
+   var livello = document.getElementById('livello').value;
+   var maxRange;
+   if (livello == "facile") {
+     maxRange = 100;
+   }
+   else if (livello == "medio") {
+     maxRange = 80;
+   }
+   else if (livello == "difficile") {
+     maxRange = 50;
+   }
+   else {
+     alert("Devi selezionare un opzione");
+   }
 
-// chiedo all'utente un numero da 1 a 100 fino a quando non ne scrive uno uguale a quelli generati in numComputer
-do {
-  num = parseInt(prompt("Inserire un numero da 1 a 100"));
-      if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true ) {
-        numUtente.push(num);
-      }
-} while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true);
+     var numComputer = [];
+     var maxNumComputer = 16;
+     var numUtente = [];
+     var maxNumUtente = 84;
+     var num;
+   // creo numeri casuali da 1 a 100 senza ripetizioni
+     while (numComputer.length < maxNumComputer) {
+       console.log(numComputer.length);
+       var numRandom = getRandomIntInclusive(1,maxRange);
+       if (inclusoInArray(numComputer,numRandom) == false) {
+         numComputer.push(numRandom);
+       }
+     }
+     console.log(numComputer);
 
-console.log(numUtente,numUtente.length);
-// risultato
-if (numUtente.length == maxNumUtente) {
-  // console.log("Complimenti! Hai vinto!");
-  alert("Complimenti! Hai vinto!");
-}
-else {
-  // console.log("Hai perso!");
-  alert("Hai perso!" + "Il tuo punteggio è di" + numUtente.length );
-}
-console.log("il tuo punteggio è ", numUtente.length);
-console.log("Hai perso insererndo il numero",num);
+   // chiedo all'utente un numero da 1 a 100 fino a quando non ne scrive uno uguale a quelli generati in numComputer
+   do {
+     num = parseInt(prompt("Inserire un numero da 1 a 100"));
+         if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(maxRange,1,num)== true ) {
+           numUtente.push(num);
+         }
+   } while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num)) && condizioni(maxRange,1,num)== true);
+
+   console.log(numUtente,numUtente.length);
+   // risultato
+   if (numUtente.length == maxNumUtente) {
+     // console.log("Complimenti! Hai vinto!");
+     alert("Complimenti! Hai vinto!");
+   }
+   else {
+     // console.log("Hai perso!");
+     alert("Hai perso!" + "Il tuo punteggio è " + numUtente.length );
+   }
+   console.log("il tuo punteggio è ", numUtente.length);
+   console.log("Hai perso insererndo il numero",num);
+ });
+
+
+
 
 
 
