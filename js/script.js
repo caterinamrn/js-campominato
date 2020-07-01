@@ -19,12 +19,18 @@
   console.log(numComputer);
 
 // chiedo all'utente un numero da 1 a 100 fino a quando non ne scrive uno uguale a quelli generati in numComputer
- while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num))  ) {
-    num = parseInt(prompt("Inserire un numero da 1 a 100"));
-    if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true ) {
-      numUtente.push(num);
-    }
-}
+//  while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true ) {
+//     num = parseInt(prompt("Inserire un numero da 1 a 100"));
+//     if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true ) {
+//       numUtente.push(num);
+//     }
+// }
+do {
+  num = parseInt(prompt("Inserire un numero da 1 a 100"));
+      if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true ) {
+        numUtente.push(num);
+      }
+} while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true);
 console.log(numUtente,numUtente.length);
 // risultato
 if (numUtente.length == maxNumUtente) {
@@ -88,7 +94,7 @@ function inclusoInArray (array,num){
 // devo creare una function per vedere se il numero inserito è nel range e se è un numero
 function condizioni(max,min,num){
   // console.log(num < min,num > max,isNaN(num),num < min || num > max || !isNaN(num));
-  var incluso = false;
+  var incluso = true;
   if (num < min || num > max || isNaN(num)) {
     return incluso = false;
   }

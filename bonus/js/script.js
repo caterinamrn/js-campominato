@@ -17,7 +17,7 @@
 // chiedo all'utente un numero da 1 a 100 fino a quando non ne scrive uno uguale a quelli generati in numComputer
  while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num))) {
     num = parseInt(prompt("Inserire un numero da 1 a 100"));
-    if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num))) {
+    if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num)) && condizioni(100,1,num)== true) {
       numUtente.push(num);
     }
 }
