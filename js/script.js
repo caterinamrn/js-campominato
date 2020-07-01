@@ -1,9 +1,14 @@
-// mi creo variabili per inserire il numero massimo di numeri richiesti così che se doìevo cambiarli posso cambiarli velocemente
+// mi creo variabili per inserire il numero massimo di numeri richiesti così che se devo cambiarli posso cambiarli velocemente
 // utilizzo cicli while visto che non so quante ripetizioni sono necessarie anche se conosco il numero finale a cui devo arrivare
-// utilizzo di functions mi semplifica il codice, posso utilizzarle in più volte e semplificano il codice, soprattuto gli if in questo caso avendo a disposizioni delle condizioni create dalle functions
+// utilizzo di functions mi semplifica il codice, posso utilizzarle più volte e semplificano il codice, soprattuto gli if -in questo caso- avendo a disposizioni delle condizioni create dalle functions
+
 
   var numComputer = [];
   var maxNumComputer = 16;
+  var numUtente = [];
+  var maxNumUtente = 7;
+  var num;
+// creo numeri casuali da 1 a 100 senza ripetizioni
   while (numComputer.length < maxNumComputer) {
     console.log(numComputer.length);
     var numRandom = getRandomIntInclusive(1,100);
@@ -12,6 +17,23 @@
     }
   }
   console.log(numComputer);
+
+// chiedo all'utente un numero da 1 a 100 fino a quando non ne scrive uno uguale a quelli generati in numComputer
+ while (numUtente.length < maxNumUtente && !(inclusoInArray(numComputer,num))) {
+    num = parseInt(prompt("Inserire un numero da 1 a 100"));
+    if (!(inclusoInArray(numUtente,num)) && !(inclusoInArray(numComputer,num))) {
+      numUtente.push(num);
+    }
+}
+console.log(numUtente,numUtente.length);
+// risultato
+if (numUtente.length == maxNumUtente) {
+  console.log("Complimenti! Hai vinto!");
+}
+else {
+  console.log("Hai perso!");
+}
+console.log("il tuo punteggio è di", numUtente.length);
 // for (var i = 0; i < 16; i++) {
 //   numComputer.push(getRandomIntInclusive(1,100));
 // }
